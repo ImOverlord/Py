@@ -1,0 +1,49 @@
+import random
+
+	
+def BubbleSort(suite):
+	
+	len1 = len(suite)
+	echange = False
+	i = 0
+	x = 0
+	while i < len1-1:
+		if suite[i] > suite[i + 1]:
+			suite[i], suite[i+1] = suite[i+1],suite[i]
+
+			echange = True
+			x = x + 1
+			#print suite
+			#print x
+
+		i = i + 1
+		if i >=  len1 - 1 and echange == False:
+			return x
+		elif i >= len1-1:
+			echange = False
+			i = 0
+
+def Insertion(suite):
+	
+	x = 0
+	for i in range(len(suite)):
+		j = i
+		while j > 0 and suite[j-1] > suite[j]:
+			suite[j],suite[j-1] = suite[j-1],suite[j]
+			j = j - 1
+			x = x + 1
+	return x
+def main():
+	terme = int(input("Nombre de terme pour la suite: "))
+	suite = []
+	for i in range(terme):
+		suite.append(i)
+	
+	random.shuffle(suite)
+	
+	print ''.join(["\nLa fonction BubbleSort a effectue ",str(BubbleSort(suite)), " operations"])
+	random.shuffle(suite)
+	print ''.join(["\nLa fonction Insertion a effectue ",str(Insertion(suite)), " operations"])
+	
+main()
+main()
